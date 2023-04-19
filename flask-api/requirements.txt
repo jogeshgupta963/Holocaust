@@ -1,0 +1,6 @@
+Flask
+Flask-Cors
+python-dotenv
+virtualenv
+pickle5
+scikit-learn
