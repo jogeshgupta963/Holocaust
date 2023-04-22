@@ -14,7 +14,7 @@ class SMS():
             return jsonify({
                 "error":"Invalid data"
         }) 
-        file = "/home/jogesh/Documents/Github/Holocaust/flask-api/nlp/sms/spam.pkl"
+        file = "C:/Users/Lenovo/Desktop/kavach/Holocaust/flask-api/nlp/sms/spam.pkl"
 
         fileObj = open(file, "rb")
 
