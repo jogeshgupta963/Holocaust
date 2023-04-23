@@ -3,4 +3,8 @@ Flask-Cors
 python-dotenv
 virtualenv
 pickle5
+sklearn
 scikit-learn
+tensorflow
+numpy
+bs4
