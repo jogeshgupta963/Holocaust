@@ -6,7 +6,7 @@ import numpy as np
 from tensorflow.keras.preprocessing.text import Tokenizer
 from tensorflow.keras.preprocessing.sequence import pad_sequences
 # Model = keras.models.load_model('/home/jogesh/Documents/Github/Holocaust/flask-api/nlp/email/model.h5')
-Model = keras.models.load_model('/hC:/Users/Lenovo/Desktop/kavach/Holocaust/flask-api/nlp/email/model.h5')
+Model = keras.models.load_model('C:/Users/Lenovo/Desktop/kavach/Holocaust/flask-api/nlp/mail/model.h5')
 
 Tokenizer = Tokenizer(num_words = 8195,oov_token="<000>")
 
@@ -28,7 +28,10 @@ def classify(text):
         maxlen = 512
     )
     data = np.array(padded_text)
-    return data
+    predictions = Model.predict(data)
+    # print(f"predictions {predictions}")
+    
+    return predictions[0].tolist()
 
 
 # text = "This is a sample text to predict sentiment on."

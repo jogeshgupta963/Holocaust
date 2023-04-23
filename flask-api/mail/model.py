@@ -13,6 +13,7 @@ class Email():
         }) 
         
         prediction =  classify(data["content"])
+        # print(prediction)
         resp = dict({
             "success":True,
             "data":prediction
