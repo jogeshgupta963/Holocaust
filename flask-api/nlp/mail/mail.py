@@ -2,7 +2,7 @@
 import numpy as np
 from bs4 import BeautifulSoup
 from tensorflow import keras
-import numpy as np
+
 from tensorflow.keras.preprocessing.text import Tokenizer
 from tensorflow.keras.preprocessing.sequence import pad_sequences
 # Model = keras.models.load_model('/home/jogesh/Documents/Github/Holocaust/flask-api/nlp/email/model.h5')
@@ -28,8 +28,9 @@ def classify(text):
         maxlen = 512
     )
     data = np.array(padded_text)
+    
     predictions = Model.predict(data)
-    # print(f"predictions {predictions}")
+    
     
     return predictions[0].tolist()
 
