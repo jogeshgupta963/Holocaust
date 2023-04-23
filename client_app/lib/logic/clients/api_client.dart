@@ -4,7 +4,7 @@ import 'package:retrofit/retrofit.dart';
 
 part 'api_client.g.dart';
 
-@RestApi(baseUrl: 'http://172.16.78.228:5000')
+@RestApi(baseUrl: 'http://172.16.131.13:5000')
 abstract class ApiClient {
   factory ApiClient(
     Dio dio, {
