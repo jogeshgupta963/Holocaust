@@ -49,6 +49,8 @@ dependencies:
   google_sign_in: ^5.4.4
   retrofit: ^4.0.1
   dio: ^5.1.1
+  dismissible_carousel_viewpager: ^0.0.5
+  fl_chart: ^0.62.0
 
 dev_dependencies:
   flutter_test:
