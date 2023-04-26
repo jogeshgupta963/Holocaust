@@ -30,7 +30,7 @@ class PrecautionSection extends ConsumerWidget {
               color: secondaryColor,
             ),
             title: Text(
-              'Lorem ipsum',
+              'Use private network for transactions instead of public wifi',
               style: GoogleFonts.poppins(
                 fontSize: 16,
                 fontWeight: FontWeight.w400,
@@ -43,7 +43,7 @@ class PrecautionSection extends ConsumerWidget {
               color: secondaryColor,
             ),
             title: Text(
-              'Lorem ipsum',
+              'Do not share OTP with anyone',
               style: GoogleFonts.poppins(
                 fontSize: 16,
                 fontWeight: FontWeight.w400,
@@ -56,7 +56,7 @@ class PrecautionSection extends ConsumerWidget {
               color: secondaryColor,
             ),
             title: Text(
-              'Lorem ipsum',
+              'Prevent clicking on links and SMS',
               style: GoogleFonts.poppins(
                 fontSize: 16,
                 fontWeight: FontWeight.w400,
@@ -69,7 +69,7 @@ class PrecautionSection extends ConsumerWidget {
               color: secondaryColor,
             ),
             title: Text(
-              'Lorem ipsum',
+              'Logout of accounts when logged in on public or other devices',
               style: GoogleFonts.poppins(
                 fontSize: 16,
                 fontWeight: FontWeight.w400,

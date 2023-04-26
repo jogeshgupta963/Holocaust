@@ -51,7 +51,7 @@ abstract class _$AppRouter extends RootStackRouter {
         routeData: routeData,
         child: RiskScorePage(
           key: args.key,
-          message: args.message,
+          messageData: args.messageData,
         ),
       );
     },
@@ -139,13 +139,13 @@ class ReportRoute extends PageRouteInfo<void> {
 class RiskScoreRoute extends PageRouteInfo<RiskScoreRouteArgs> {
   RiskScoreRoute({
     Key? key,
-    required String message,
+    required List<double> messageData,
     List<PageRouteInfo>? children,
   }) : super(
           RiskScoreRoute.name,
           args: RiskScoreRouteArgs(
             key: key,
-            message: message,
+            messageData: messageData,
           ),
           initialChildren: children,
         );
@@ -159,16 +159,16 @@ class RiskScoreRoute extends PageRouteInfo<RiskScoreRouteArgs> {
 class RiskScoreRouteArgs {
   const RiskScoreRouteArgs({
     this.key,
-    required this.message,
+    required this.messageData,
   });
 
   final Key? key;
 
-  final String message;
+  final List<double> messageData;
 
   @override
   String toString() {
-    return 'RiskScoreRouteArgs{key: $key, message: $message}';
+    return 'RiskScoreRouteArgs{key: $key, messageData: $messageData}';
   }
 }
 

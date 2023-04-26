@@ -6,8 +6,8 @@ import 'package:flutter/material.dart';
 import '../../../constants/colors.dart';
 
 class RiskChart extends StatefulWidget {
-  final String message;
-  const RiskChart({super.key, required this.message});
+  final List<double> messageData;
+  const RiskChart({super.key, required this.messageData});
 
   @override
   State<StatefulWidget> createState() => RiskChartState();
@@ -19,9 +19,8 @@ class RiskChartState extends State<RiskChart> {
   @override
   void initState() {
     super.initState();
-    rnd = widget.message == 'spam message'
-        ? Random().nextInt(10) + 10
-        : Random().nextInt(10) + 90;
+    String value = (widget.messageData[1] * 100).toStringAsFixed(2);
+    rnd = double.parse(value);
   }
 
   @override

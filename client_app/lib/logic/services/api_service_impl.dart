@@ -25,19 +25,18 @@ class ApiServiceImpl extends ApiService {
   @override
   Future<ApiResponse<SpamMessageData>> fetchSpamMessgageData(
       {required String sms}) async {
-    try {
-      final response = await _apiClient.checkSpamMessage(
-              spamMessageResponse: SpamMessageResponse(sms: sms))
-          as Map<String, dynamic>;
-
-      if (response['success']) {
-        return ApiResponse.success(
-            SpamMessageData(data: response['data'], success: true));
-      }
-      return ApiResponse.error('Data not found');
-    } catch (e) {
-      print('object');
-      return ApiResponse.error('Something Went Wrong');
+    final response = await _apiClient.checkSpamMessage(
+            spamMessageResponse: SpamMessageResponse(sms: sms))
+        as Map<String, dynamic>;
+    print(response['success']);
+    if (response['success']) {
+      return ApiResponse.success(SpamMessageData(
+          data: [response['data'][0], response['data'][1]], success: true));
     }
+    return ApiResponse.error('Data not found');
+    // } catch (e) {
+    //   print('object');
+    //   return ApiResponse.error('Something Went Wrong');
+    // }
   }
 }

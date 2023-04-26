@@ -22,29 +22,29 @@ class MainPageModel extends StateNotifier<MainPageState> {
   }) : super(const MainPageState()) {}
 
   Future<SpamMessageData> checkSpamMessage() async {
-    if (state.sms == '') {
-      return const SpamMessageData(
-          data: 'Please Type Something', success: false);
-    }
-    print(state.sms);
+    // if (state.sms == '') {
+    //   state = state.copyWith(errorMessage: 'Please Type Something');
+    //   return const SpamMessageData(success: false);
+    // }
+
     state = state.copyWith(loadingStatus: LoadingStatus.loading);
-    await Future.delayed(const Duration(seconds: 2));
+    // await Future.delayed(const Duration(seconds: 2));
     final response = await apiService.fetchSpamMessgageData(sms: state.sms);
 
     if (response.status != ApiStatus.success) {
       state = state.copyWith(
+        errorMessage: 'Something Went Wrong',
         loadingStatus: LoadingStatus.error,
       );
 
-      return const SpamMessageData(
-          data: 'Something Went Wrong', success: false);
+      return const SpamMessageData(success: false);
     }
     state = state.copyWith(
       data: response.data!,
       loadingStatus: LoadingStatus.loaded,
     );
+    print(response.data);
     return SpamMessageData(data: response.data!.data, success: true);
-    ;
   }
 
   setSmsMessage(String sms) {
@@ -58,6 +58,7 @@ class MainPageState with _$MainPageState {
     @Default(LoadingStatus.initial) LoadingStatus loadingStatus,
     SpamMessageData? data,
     @Default('') String sms,
+    @Default('') String errorMessage,
   }) = _MainPageState;
 }
 
