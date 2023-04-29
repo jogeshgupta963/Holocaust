@@ -8,7 +8,9 @@ part of 'fetch_spam_message_data.dart';
 
 SpamMessageData _$SpamMessageDataFromJson(Map<String, dynamic> json) =>
     SpamMessageData(
-      data: json['data'] as String,
+      data: (json['data'] as List<dynamic>?)
+          ?.map((e) => (e as num).toDouble())
+          .toList(),
       success: json['success'] as bool,
     );
 

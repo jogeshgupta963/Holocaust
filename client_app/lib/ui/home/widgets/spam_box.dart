@@ -18,6 +18,8 @@ class CheckSpamBox extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final status = ref.watch(homePageProvider.select((_) => _.loadingStatus));
+    final errorMessage =
+        ref.watch(homePageProvider.select((_) => _.errorMessage));
     return Padding(
       padding: const EdgeInsets.symmetric(
         horizontal: 20,
@@ -65,11 +67,13 @@ class CheckSpamBox extends ConsumerWidget {
                 final messageData = await ref
                     .read(homePageProvider.notifier)
                     .checkSpamMessage();
+                print(messageData.data);
                 if (messageData.success == false) {
-                  showMessage(context, messageData.data);
+                  showMessage(context, 'Helollo');
                 } else {
                   focusNode.unfocus();
-                  context.navigateTo(RiskScoreRoute(message: messageData.data));
+                  context.navigateTo(
+                      RiskScoreRoute(messageData: messageData.data!));
                 }
               },
               title: 'Check Risk Score',

@@ -6,8 +6,8 @@ import '../../../widgets/custom_button.dart';
 import 'risk_chart.dart';
 
 class RiskScoreBox extends ConsumerStatefulWidget {
-  final String message;
-  const RiskScoreBox({super.key, required this.message});
+  final List<double> data;
+  const RiskScoreBox({super.key, required this.data});
 
   @override
   ConsumerState<ConsumerStatefulWidget> createState() => _PieChartBoxState();
@@ -39,7 +39,7 @@ class _PieChartBoxState extends ConsumerState<RiskScoreBox> {
                 fontWeight: FontWeight.bold,
               ),
             ),
-            RiskChart(message: widget.message),
+            RiskChart(messageData: widget.data),
             CustomButton(
               isActive: false,
               onTap: () {},

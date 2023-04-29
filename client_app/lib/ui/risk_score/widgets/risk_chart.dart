@@ -6,8 +6,8 @@ import 'package:flutter/material.dart';
 import '../../../constants/colors.dart';
 
 class RiskChart extends StatefulWidget {
-  final String message;
-  const RiskChart({super.key, required this.message});
+  final List<double> messageData;
+  const RiskChart({super.key, required this.messageData});
 
   @override
   State<StatefulWidget> createState() => RiskChartState();
@@ -19,9 +19,8 @@ class RiskChartState extends State<RiskChart> {
   @override
   void initState() {
     super.initState();
-    rnd = widget.message == 'spam message'
-        ? Random().nextInt(10) + 10
-        : Random().nextInt(10) + 90;
+    String value = (widget.messageData[0] * 100).toStringAsFixed(2);
+    rnd = double.parse(value);
   }
 
   @override
@@ -50,7 +49,7 @@ class RiskChartState extends State<RiskChart> {
               show: false,
             ),
             sectionsSpace: 0,
-            centerSpaceRadius: 50,
+            centerSpaceRadius: 65,
             sections: showingSections(rnd),
           ),
         ),
@@ -62,7 +61,7 @@ class RiskChartState extends State<RiskChart> {
     return List.generate(2, (i) {
       final isTouched = i == touchedIndex;
       final fontSize = isTouched ? 20.0 : 12.0;
-      final radius = isTouched ? 50.0 : 40.0;
+      final radius = isTouched ? 35.0 : 25.0;
 
       const shadows = [Shadow(color: Colors.black, blurRadius: 2)];
 
@@ -71,7 +70,7 @@ class RiskChartState extends State<RiskChart> {
           return PieChartSectionData(
             color: primaryColor,
             value: rnd,
-            title: '$rnd%',
+            title: '${rnd.toStringAsFixed(2)}%',
             radius: radius * 1.2,
             titleStyle: TextStyle(
               fontSize: fontSize,
@@ -84,7 +83,7 @@ class RiskChartState extends State<RiskChart> {
           return PieChartSectionData(
             color: Colors.red,
             value: 100 - rnd,
-            title: '${100 - rnd}%',
+            title: '${(100 - rnd).toStringAsFixed(2)}%',
             radius: radius * 1.4,
             titleStyle: TextStyle(
               fontSize: fontSize,

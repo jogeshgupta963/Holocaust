@@ -30,14 +30,123 @@ class _SplashPageState extends ConsumerState<SplashPage> {
     return Scaffold(
       backgroundColor: primaryColor,
       body: SafeArea(
-          child: Center(
-        child: Text(
-          'Holocaust',
-          style: GoogleFonts.sofia(
-            color: Colors.white,
-            fontSize: 80,
-            fontWeight: FontWeight.bold,
-          ),
+          child: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Image.asset(
+              'assets/images/splash_logo.png',
+              width: double.infinity,
+              height: 400,
+              fit: BoxFit.fitWidth,
+            ),
+            Text(
+              'SPAM SHIELD',
+              textAlign: TextAlign.center,
+              style: GoogleFonts.nunito(
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+                fontSize: 40,
+              ),
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Icon(
+                  Icons.check,
+                  color: Colors.white,
+                  size: 30,
+                  grade: 20,
+                ),
+                const SizedBox(
+                  width: 10,
+                ),
+                Text(
+                  '100% Secure',
+                  style: GoogleFonts.poppins(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 25,
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Icon(
+                  Icons.check,
+                  color: Colors.white,
+                  size: 30,
+                  grade: 20,
+                ),
+                const SizedBox(
+                  width: 10,
+                ),
+                Text(
+                  'Report Spam',
+                  style: GoogleFonts.poppins(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 25,
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Icon(
+                  Icons.check,
+                  color: Colors.white,
+                  size: 30,
+                  grade: 20,
+                ),
+                const SizedBox(
+                  width: 10,
+                ),
+                Text(
+                  'Get Risk Score',
+                  style: GoogleFonts.poppins(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 25,
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(
+              height: 30,
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 40),
+              child: Container(
+                height: 50,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(4),
+                ),
+                child: Center(
+                    child: Text(
+                  'Loading...',
+                  style: GoogleFonts.poppins(
+                    color: primaryColor,
+                    fontWeight: FontWeight.w500,
+                    fontSize: 16,
+                  ),
+                )),
+              ),
+            )
+          ],
         ),
       )),
     );

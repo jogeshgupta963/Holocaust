@@ -19,6 +19,7 @@ mixin _$MainPageState {
   LoadingStatus get loadingStatus => throw _privateConstructorUsedError;
   SpamMessageData? get data => throw _privateConstructorUsedError;
   String get sms => throw _privateConstructorUsedError;
+  String get errorMessage => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $MainPageStateCopyWith<MainPageState> get copyWith =>
@@ -31,7 +32,11 @@ abstract class $MainPageStateCopyWith<$Res> {
           MainPageState value, $Res Function(MainPageState) then) =
       _$MainPageStateCopyWithImpl<$Res, MainPageState>;
   @useResult
-  $Res call({LoadingStatus loadingStatus, SpamMessageData? data, String sms});
+  $Res call(
+      {LoadingStatus loadingStatus,
+      SpamMessageData? data,
+      String sms,
+      String errorMessage});
 }
 
 /// @nodoc
@@ -50,6 +55,7 @@ class _$MainPageStateCopyWithImpl<$Res, $Val extends MainPageState>
     Object? loadingStatus = null,
     Object? data = freezed,
     Object? sms = null,
+    Object? errorMessage = null,
   }) {
     return _then(_value.copyWith(
       loadingStatus: null == loadingStatus
@@ -64,6 +70,10 @@ class _$MainPageStateCopyWithImpl<$Res, $Val extends MainPageState>
           ? _value.sms
           : sms // ignore: cast_nullable_to_non_nullable
               as String,
+      errorMessage: null == errorMessage
+          ? _value.errorMessage
+          : errorMessage // ignore: cast_nullable_to_non_nullable
+              as String,
     ) as $Val);
   }
 }
@@ -76,7 +86,11 @@ abstract class _$$_MainPageStateCopyWith<$Res>
       __$$_MainPageStateCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({LoadingStatus loadingStatus, SpamMessageData? data, String sms});
+  $Res call(
+      {LoadingStatus loadingStatus,
+      SpamMessageData? data,
+      String sms,
+      String errorMessage});
 }
 
 /// @nodoc
@@ -93,6 +107,7 @@ class __$$_MainPageStateCopyWithImpl<$Res>
     Object? loadingStatus = null,
     Object? data = freezed,
     Object? sms = null,
+    Object? errorMessage = null,
   }) {
     return _then(_$_MainPageState(
       loadingStatus: null == loadingStatus
@@ -107,6 +122,10 @@ class __$$_MainPageStateCopyWithImpl<$Res>
           ? _value.sms
           : sms // ignore: cast_nullable_to_non_nullable
               as String,
+      errorMessage: null == errorMessage
+          ? _value.errorMessage
+          : errorMessage // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -115,7 +134,10 @@ class __$$_MainPageStateCopyWithImpl<$Res>
 
 class _$_MainPageState implements _MainPageState {
   const _$_MainPageState(
-      {this.loadingStatus = LoadingStatus.initial, this.data, this.sms = ''});
+      {this.loadingStatus = LoadingStatus.initial,
+      this.data,
+      this.sms = '',
+      this.errorMessage = ''});
 
   @override
   @JsonKey()
@@ -125,10 +147,13 @@ class _$_MainPageState implements _MainPageState {
   @override
   @JsonKey()
   final String sms;
+  @override
+  @JsonKey()
+  final String errorMessage;
 
   @override
   String toString() {
-    return 'MainPageState(loadingStatus: $loadingStatus, data: $data, sms: $sms)';
+    return 'MainPageState(loadingStatus: $loadingStatus, data: $data, sms: $sms, errorMessage: $errorMessage)';
   }
 
   @override
@@ -139,11 +164,14 @@ class _$_MainPageState implements _MainPageState {
             (identical(other.loadingStatus, loadingStatus) ||
                 other.loadingStatus == loadingStatus) &&
             (identical(other.data, data) || other.data == data) &&
-            (identical(other.sms, sms) || other.sms == sms));
+            (identical(other.sms, sms) || other.sms == sms) &&
+            (identical(other.errorMessage, errorMessage) ||
+                other.errorMessage == errorMessage));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, loadingStatus, data, sms);
+  int get hashCode =>
+      Object.hash(runtimeType, loadingStatus, data, sms, errorMessage);
 
   @JsonKey(ignore: true)
   @override
@@ -156,7 +184,8 @@ abstract class _MainPageState implements MainPageState {
   const factory _MainPageState(
       {final LoadingStatus loadingStatus,
       final SpamMessageData? data,
-      final String sms}) = _$_MainPageState;
+      final String sms,
+      final String errorMessage}) = _$_MainPageState;
 
   @override
   LoadingStatus get loadingStatus;
@@ -164,6 +193,8 @@ abstract class _MainPageState implements MainPageState {
   SpamMessageData? get data;
   @override
   String get sms;
+  @override
+  String get errorMessage;
   @override
   @JsonKey(ignore: true)
   _$$_MainPageStateCopyWith<_$_MainPageState> get copyWith =>

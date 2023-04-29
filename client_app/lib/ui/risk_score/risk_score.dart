@@ -10,8 +10,8 @@ import 'package:kavach/ui/risk_score/widgets/precautions_section.dart';
 
 @RoutePage()
 class RiskScorePage extends ConsumerStatefulWidget {
-  final String message;
-  const RiskScorePage({super.key, required this.message});
+  final List<double> messageData;
+  const RiskScorePage({super.key, required this.messageData});
 
   @override
   ConsumerState<ConsumerStatefulWidget> createState() => _RiskScorePageState();
@@ -26,7 +26,7 @@ class _RiskScorePageState extends ConsumerState<RiskScorePage> {
         child: Column(
           children: [
             const SizedBox(height: 20),
-            RiskScoreBox(message: widget.message),
+            RiskScoreBox(data: widget.messageData),
             const SizedBox(height: 20),
             const PrecautionSection(),
             const SizedBox(height: 40),
