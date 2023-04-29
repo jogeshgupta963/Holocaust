@@ -19,7 +19,7 @@ class RiskChartState extends State<RiskChart> {
   @override
   void initState() {
     super.initState();
-    String value = (widget.messageData[1] * 100).toStringAsFixed(2);
+    String value = (widget.messageData[0] * 100).toStringAsFixed(2);
     rnd = double.parse(value);
   }
 
@@ -49,7 +49,7 @@ class RiskChartState extends State<RiskChart> {
               show: false,
             ),
             sectionsSpace: 0,
-            centerSpaceRadius: 50,
+            centerSpaceRadius: 65,
             sections: showingSections(rnd),
           ),
         ),
@@ -61,7 +61,7 @@ class RiskChartState extends State<RiskChart> {
     return List.generate(2, (i) {
       final isTouched = i == touchedIndex;
       final fontSize = isTouched ? 20.0 : 12.0;
-      final radius = isTouched ? 50.0 : 40.0;
+      final radius = isTouched ? 35.0 : 25.0;
 
       const shadows = [Shadow(color: Colors.black, blurRadius: 2)];
 
@@ -70,7 +70,7 @@ class RiskChartState extends State<RiskChart> {
           return PieChartSectionData(
             color: primaryColor,
             value: rnd,
-            title: '$rnd%',
+            title: '${rnd.toStringAsFixed(2)}%',
             radius: radius * 1.2,
             titleStyle: TextStyle(
               fontSize: fontSize,
@@ -83,7 +83,7 @@ class RiskChartState extends State<RiskChart> {
           return PieChartSectionData(
             color: Colors.red,
             value: 100 - rnd,
-            title: '${100 - rnd}%',
+            title: '${(100 - rnd).toStringAsFixed(2)}%',
             radius: radius * 1.4,
             titleStyle: TextStyle(
               fontSize: fontSize,

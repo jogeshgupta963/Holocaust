@@ -22,13 +22,13 @@ class MainPageModel extends StateNotifier<MainPageState> {
   }) : super(const MainPageState()) {}
 
   Future<SpamMessageData> checkSpamMessage() async {
-    // if (state.sms == '') {
-    //   state = state.copyWith(errorMessage: 'Please Type Something');
-    //   return const SpamMessageData(success: false);
-    // }
+    if (state.sms == '') {
+      state = state.copyWith(errorMessage: 'Please Type Something');
+      return const SpamMessageData(success: false);
+    }
 
     state = state.copyWith(loadingStatus: LoadingStatus.loading);
-    // await Future.delayed(const Duration(seconds: 2));
+    await Future.delayed(const Duration(seconds: 2));
     final response = await apiService.fetchSpamMessgageData(sms: state.sms);
 
     if (response.status != ApiStatus.success) {
